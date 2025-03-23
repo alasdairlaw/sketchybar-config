@@ -117,7 +117,7 @@ end
 
 local function load_weather(weather_data)
     local current_condition = weather_data.current_condition[1]
-    local temperature = current_condition.temp_F .. "°"
+    local temperature = current_condition.temp_C .. "°"
     local condition = current_condition.weatherDesc[1].value
     weather:set({
         icon = { string = map_condition_to_icon(condition), drawing = true },
