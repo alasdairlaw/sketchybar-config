@@ -2,7 +2,7 @@ local icons = require("icons")
 local colors = require("colors")
 local settings = require("settings")
 
-local ram = sbar.add("graph", "widgets.ram", 42, {
+local ram = sbar.add("graph", "widgets.ram", 32, {
     position = "right",
     graph = { color = colors.blue },
     background = {
@@ -13,16 +13,14 @@ local ram = sbar.add("graph", "widgets.ram", 42, {
     },
     icon = { string = icons.ram },
     label = {
-        string = "ram ??%",
+        string = "??%",
         font = {
             family = settings.font.numbers,
-            style = settings.font.style_map["Bold"],
-            size = 9.0,
         },
         align = "right",
         padding_right = 0,
         width = 0,
-        y_offset = 4
+        y_offset = 0
     },
     update_freq = 3,
     updates = true,
@@ -37,6 +35,10 @@ sbar.add("item", "widgets.ram.padding", {
     position = "right",
     width = settings.group_paddings
 })
+
+ram:subscribe("mouse.clicked", function(env)
+    sbar.exec("open -a 'Activity Monitor'")
+end)
 
 ram:subscribe({ "routine", "forced", "system_woke" }, function(env)
     sbar.exec("memory_pressure", function(output)
@@ -55,7 +57,7 @@ ram:subscribe({ "routine", "forced", "system_woke" }, function(env)
         end
         ram:set({
             graph = { color = color },
-            label = { string = "ram " .. load .. "%" }
+            label = { string = load .. "%" }
         })
     end)
 end)
