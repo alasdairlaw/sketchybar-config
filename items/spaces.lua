@@ -11,17 +11,18 @@ for i = 1, 10, 1 do
     icon = {
       font = { family = settings.font.numbers },
       string = i,
-      padding_left = 8,
-      padding_right = 8,
+      padding_left = 6,
+      padding_right = 6,
       color = colors.white,
       highlight_color = colors.red,
+      y_offset = 1,
     },
     label = {
-      padding_right = 10,
+      padding_right = 6,
       color = colors.grey,
       highlight_color = colors.white,
-      font = "sketchybar-app-font:Regular:16.0",
-      y_offset = -1,
+      font = "sketchybar-app-font:Regular:15.0",
+      y_offset = 1,
     },
     padding_right = 1,
     padding_left = 1,
@@ -84,7 +85,9 @@ for i = 1, 10, 1 do
       space:set({ popup = { drawing = "toggle" } })
     else
       local op = (env.BUTTON == "right") and "--destroy" or "--focus"
-      sbar.exec("yabai -m space " .. op .. " " .. env.SID)
+      -- sbar.exec("yabai -m space " .. op .. " " .. env.SID)
+      -- use the control + index keyboard shortcut to switch spaces
+      sbar.exec("osascript -e 'tell application \"System Events\" to key code \"" .. env.SID .. "\" using control down'")
     end
   end)
 
@@ -146,7 +149,7 @@ spaces_indicator:subscribe("swap_menus_and_spaces", function(env)
 end)
 
 spaces_indicator:subscribe("mouse.entered", function(env)
-  sbar.animate("tanh", 30, function()
+  sbar.animate("tanh", 20, function()
     spaces_indicator:set({
       background = {
         color = { alpha = 1.0 },
@@ -159,7 +162,7 @@ spaces_indicator:subscribe("mouse.entered", function(env)
 end)
 
 spaces_indicator:subscribe("mouse.exited", function(env)
-  sbar.animate("tanh", 30, function()
+  sbar.animate("tanh", 20, function()
     spaces_indicator:set({
       background = {
         color = { alpha = 0.0 },
