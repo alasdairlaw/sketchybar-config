@@ -26,11 +26,6 @@ local icons = {
         stormy="􀇞",
         sleet="􀇐"
     },
-    stocks = {
-      up = "􀄤",
-      down = "􀄥",
-      even = "􀂓"
-    },
     switch = {
       on = "􁏮",
       off = "􁏯",

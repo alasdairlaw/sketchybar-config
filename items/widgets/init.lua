@@ -10,7 +10,6 @@ local widgets = {
     "wifi",
     "cpu",
     "ram",
-    "stocks"
 }
 
 for _, widget in ipairs(widgets) do

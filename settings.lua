@@ -29,14 +29,6 @@ local function load_config()
         icons = "sf-symbols", -- alternatively available: NerdFont
         paddings = 3,
         python_command = "python",
-        stocks = {
-            default_symbol = { symbol = "^GSPC", name = "S&P 500" },
-            symbols = {
-                { symbol = "^DJI", name = "Dow" },
-                { symbol = "^IXIC", name = "Nasdaq" },
-                { symbol = "^RUT", name = "Russell 2K" }
-            }
-        },
         weather = {
             location = false,
             use_shortcut = false
