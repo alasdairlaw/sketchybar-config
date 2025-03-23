@@ -154,7 +154,7 @@ local function load_weather(weather_data)
                         string = map_condition_to_icon(hourly_item.weatherDesc[1].value)
                     },
                     label = {
-                        string = map_time_to_string(hourly_item.time) .. " | " .. hourly_item.tempF .. "°" .. " | " .. (100 - tonumber(hourly_item.chanceofremdry)) .. "%"
+                        string = map_time_to_string(hourly_item.time) .. " | " .. hourly_item.tempC .. "°" .. " | " .. (100 - tonumber(hourly_item.chanceofremdry)) .. "%"
                     },
                     drawing = true
                 })
